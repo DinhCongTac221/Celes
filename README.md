@@ -1,4 +1,4 @@
-#### This guide provides two methods for running PayForBlob Transactions.<br/><br/>
+#### This guide provides method for running PayForBlob Transactions.<br/><br/>
 Install `screen, python3, pip` and install `flask` module
 <br/>
 
