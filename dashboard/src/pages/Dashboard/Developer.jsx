@@ -16,8 +16,13 @@ export default function Developer() {
     setLoading(true);
 
     const { ip, port, namespaceId, data, gasLimit, fee} = form.getFieldsValue();  
-    setResult({ ip, port, namespaceId, data, gasLimit, fee });  
-    const res = await Celestia.submitPFB(ip, port, namespaceId, data, gasLimit, fee);
+
+    try {
+      const res = await Celestia.submitPFB(ip, port, namespaceId, data, gasLimit, fee);
+      setResult(res.data);
+    } catch (err) {
+      setResult(err.message);
+    }
 
     setLoading(false);
   };
@@ -33,7 +38,7 @@ export default function Developer() {
             data: '',
             gasLimit: 80000,
             fee: 2000,
-            ip: '127.0.0.1',
+            ip: '159.69.147.84',
             port: 26659,
           }}
           style={{ width: '50%', maxWidth: '480px' }}
@@ -60,11 +65,18 @@ export default function Developer() {
             <Button loading={loading} type="primary" onClick={handleSubmit}>Submit</Button>
           </Form.Item>
         </Form>
-        {
-          result && <Typography.Paragraph code>
-          { JSON.stringify(result)}
-        </Typography.Paragraph>
-        }
+        <div style={{ width: '50%', paddingLeft: '32px' }}>
+          {
+            result && <div>
+              <Typography.Title level={3}>
+                Result
+              </Typography.Title>
+              <Typography.Paragraph>
+                { result }
+              </Typography.Paragraph>
+            </div>
+          }
+        </div>
       </div>
 
     </Card>

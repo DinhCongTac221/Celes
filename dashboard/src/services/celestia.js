@@ -1,14 +1,15 @@
-import { SigningStargateClient } from '@cosmjs/stargate';
 import axios from 'axios';
 
-const PROXY_URL = 'http://127.0.0.1:8000/proxy';
-const API_GATEWAY = 'http://127.0.0.1:26659';
+const PROXY_URL = process.env.REACT_APP_PROXY_URL;
+const NODE_API_GATEWAY = process.env.REACT_APP_NODE_API_GATEWAY;
+
+console.log(process.env);
 
 export default {
   async getBalance({ accounts }) {
     const response = await axios.post(PROXY_URL, {
-      endpoint: `${API_GATEWAY}/balance/${accounts[0].address}`,
-      method: 'GET',
+      endpoint: `${NODE_API_GATEWAY}/balance/${accounts[0].address}`,
+      method: 'get',
     });
 
     return response.data;

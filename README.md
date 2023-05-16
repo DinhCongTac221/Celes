@@ -50,7 +50,7 @@ npm install
 3. Run the Dashboard in development mode:
 
 ```bash
-npm run start
+npm run dev
 ```
 
 # Dashboard UI
