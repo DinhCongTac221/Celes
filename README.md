@@ -1,6 +1,6 @@
 # Getting Started Guide
 
-## Preview UI: https://celestia-dashboard-pll3lqnbx-buidoi8x.vercel.app/
+## Preview UI: [https://celestia-dashboard.vercel.app/](https://celestia-dashboard.vercel.app/)
 
 ## Running Celestia Light Node
 To run Celestia Light Node, follow the official documentation available at https://docs.celestia.org/developers/node-tutorial/ for installation instructions.
